@@ -45,10 +45,10 @@ pipeline {
 		}
 		stage('Build Docker Image'){
 			steps {
-				dockerImage = "docker build -t sheywayne/currency-exchange-devops:env.BUILD_TAG"
-				// script {
-				// 	dockerImage = docker.build("sheywayne/currency-exchange-devops:${env.BUILD_TAG}")
-				// }
+				// "docker build -t sheywayne/currency-exchange-devops:env.BUILD_TAG"
+				script {
+					dockerImage = docker.build("sheywayne/currency-exchange-devops:${env.BUILD_TAG}")
+				}
 
 			}
 		}
